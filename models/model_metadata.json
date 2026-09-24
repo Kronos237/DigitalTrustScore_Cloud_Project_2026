@@ -1,0 +1,119 @@
+{
+  "loaded": true,
+  "model_name": "Random Forest",
+  "model_version": "benchmark-2026-09-24",
+  "dataset_name": "UCI Phishing Websites",
+  "dataset_path": "data\\raw\\phishing+websites.zip",
+  "duplicate_audit": {
+    "raw_rows": 2456,
+    "exact_duplicate_rows_removed": 740,
+    "feature_duplicate_rows_removed": 750,
+    "duplicate_percentage": 30.130293,
+    "conflicting_feature_vectors": 10,
+    "rows_in_conflicting_feature_vectors": 34,
+    "conflicting_rows_excluded_before_split": 34,
+    "feature_duplicate_rows_removed_after_conflict_exclusion": 726,
+    "prepared_rows": 1696,
+    "prepared_class_distribution": {
+      "0": 890,
+      "1": 806
+    }
+  },
+  "feature_count": 30,
+  "feature_names": [
+    "having_IP_Address",
+    "URL_Length",
+    "Shortining_Service",
+    "having_At_Symbol",
+    "double_slash_redirecting",
+    "Prefix_Suffix",
+    "having_Sub_Domain",
+    "SSLfinal_State",
+    "Domain_registeration_length",
+    "Favicon",
+    "port",
+    "HTTPS_token",
+    "Request_URL",
+    "URL_of_Anchor",
+    "Links_in_tags",
+    "SFH",
+    "Submitting_to_email",
+    "Abnormal_URL",
+    "Redirect",
+    "on_mouseover",
+    "RightClick",
+    "popUpWidnow",
+    "Iframe",
+    "age_of_domain",
+    "DNSRecord",
+    "web_traffic",
+    "Page_Rank",
+    "Google_Index",
+    "Links_pointing_to_page",
+    "Statistical_report"
+  ],
+  "target": "label (1=phishing, 0=legitimate)",
+  "training_date": "2026-09-24",
+  "random_state": 42,
+  "split": {
+    "test_size": 0.2,
+    "validation_fraction_of_training": 0.2,
+    "stratified": true,
+    "train_rows": 1356,
+    "validation_rows": 272,
+    "test_rows": 340
+  },
+  "selection_metrics_validation": [
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.9227941176470589,
+      "precision": 0.9029850746268657,
+      "recall": 0.937984496124031,
+      "f1": 0.9201520912547528,
+      "roc_auc": 0.9804304222908873
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.9595588235294118,
+      "precision": 0.9402985074626866,
+      "recall": 0.9767441860465116,
+      "f1": 0.9581749049429658,
+      "roc_auc": 0.9868271263620102
+    }
+  ],
+  "selected_model_selection_metrics": {
+    "model": "Random Forest",
+    "accuracy": 0.9595588235294118,
+    "precision": 0.9402985074626866,
+    "recall": 0.9767441860465116,
+    "f1": 0.9581749049429658,
+    "roc_auc": 0.9868271263620102
+  },
+  "metrics": {
+    "model": "Random Forest",
+    "accuracy": 0.9794117647058823,
+    "precision": 0.9585798816568047,
+    "recall": 1.0,
+    "f1": 0.9788519637462235,
+    "roc_auc": 0.9968615619364682
+  },
+  "all_model_metrics": [
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.9529411764705882,
+      "precision": 0.9451219512195121,
+      "recall": 0.9567901234567902,
+      "f1": 0.950920245398773,
+      "roc_auc": 0.9886600083229297
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.9794117647058823,
+      "precision": 0.9585798816568047,
+      "recall": 1.0,
+      "f1": 0.9788519637462235,
+      "roc_auc": 0.9968615619364682
+    }
+  ],
+  "artifact": "models\\random_forest.joblib"
+}

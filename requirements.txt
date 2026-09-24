@@ -1,0 +1,12 @@
+# Local MVP uses the Python standard library.
+# Optional research/deployment dependencies:
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.8
+pandas>=2.2
+scikit-learn>=1.5
+joblib>=1.4
+shap>=0.52
+sqlalchemy>=2.0
+psycopg[binary]>=3.2
+boto3>=1.35

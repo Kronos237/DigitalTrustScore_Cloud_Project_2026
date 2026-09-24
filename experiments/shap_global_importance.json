@@ -1,0 +1,160 @@
+{
+  "dataset": "UCI Phishing Websites",
+  "model": "Random Forest",
+  "model_version": "benchmark-2026-09-24",
+  "sample_count": 340,
+  "feature_count": 30,
+  "importance": [
+    {
+      "rank": 1,
+      "feature": "SSLfinal_State",
+      "mean_absolute_shap_value": 0.16149551851014193
+    },
+    {
+      "rank": 2,
+      "feature": "URL_of_Anchor",
+      "mean_absolute_shap_value": 0.1361236310200887
+    },
+    {
+      "rank": 3,
+      "feature": "Prefix_Suffix",
+      "mean_absolute_shap_value": 0.08336738911262973
+    },
+    {
+      "rank": 4,
+      "feature": "web_traffic",
+      "mean_absolute_shap_value": 0.08149913228475344
+    },
+    {
+      "rank": 5,
+      "feature": "having_Sub_Domain",
+      "mean_absolute_shap_value": 0.032260565457768293
+    },
+    {
+      "rank": 6,
+      "feature": "age_of_domain",
+      "mean_absolute_shap_value": 0.032074495990189376
+    },
+    {
+      "rank": 7,
+      "feature": "Page_Rank",
+      "mean_absolute_shap_value": 0.02916762285668888
+    },
+    {
+      "rank": 8,
+      "feature": "Links_in_tags",
+      "mean_absolute_shap_value": 0.020559660260978326
+    },
+    {
+      "rank": 9,
+      "feature": "Domain_registeration_length",
+      "mean_absolute_shap_value": 0.020215089898403225
+    },
+    {
+      "rank": 10,
+      "feature": "DNSRecord",
+      "mean_absolute_shap_value": 0.016226030661326215
+    },
+    {
+      "rank": 11,
+      "feature": "Request_URL",
+      "mean_absolute_shap_value": 0.013780202299144003
+    },
+    {
+      "rank": 12,
+      "feature": "Google_Index",
+      "mean_absolute_shap_value": 0.010405463716896858
+    },
+    {
+      "rank": 13,
+      "feature": "Links_pointing_to_page",
+      "mean_absolute_shap_value": 0.009843204288728794
+    },
+    {
+      "rank": 14,
+      "feature": "URL_Length",
+      "mean_absolute_shap_value": 0.004088943917616596
+    },
+    {
+      "rank": 15,
+      "feature": "popUpWidnow",
+      "mean_absolute_shap_value": 0.003278823712145388
+    },
+    {
+      "rank": 16,
+      "feature": "SFH",
+      "mean_absolute_shap_value": 0.0032569488567212247
+    },
+    {
+      "rank": 17,
+      "feature": "HTTPS_token",
+      "mean_absolute_shap_value": 0.003255895217259382
+    },
+    {
+      "rank": 18,
+      "feature": "Abnormal_URL",
+      "mean_absolute_shap_value": 0.0020468520181064374
+    },
+    {
+      "rank": 19,
+      "feature": "Shortining_Service",
+      "mean_absolute_shap_value": 0.001921298492618543
+    },
+    {
+      "rank": 20,
+      "feature": "having_IP_Address",
+      "mean_absolute_shap_value": 0.001914025285014937
+    },
+    {
+      "rank": 21,
+      "feature": "Favicon",
+      "mean_absolute_shap_value": 0.0017039500499525897
+    },
+    {
+      "rank": 22,
+      "feature": "Submitting_to_email",
+      "mean_absolute_shap_value": 0.0015436495712913302
+    },
+    {
+      "rank": 23,
+      "feature": "Iframe",
+      "mean_absolute_shap_value": 0.0011789635305856684
+    },
+    {
+      "rank": 24,
+      "feature": "port",
+      "mean_absolute_shap_value": 0.0010996663429888782
+    },
+    {
+      "rank": 25,
+      "feature": "on_mouseover",
+      "mean_absolute_shap_value": 0.0009489769874493617
+    },
+    {
+      "rank": 26,
+      "feature": "Statistical_report",
+      "mean_absolute_shap_value": 0.0009452562756085376
+    },
+    {
+      "rank": 27,
+      "feature": "double_slash_redirecting",
+      "mean_absolute_shap_value": 0.0007343421308047135
+    },
+    {
+      "rank": 28,
+      "feature": "Redirect",
+      "mean_absolute_shap_value": 0.0006567387265603264
+    },
+    {
+      "rank": 29,
+      "feature": "having_At_Symbol",
+      "mean_absolute_shap_value": 0.0006047264889662851
+    },
+    {
+      "rank": 30,
+      "feature": "RightClick",
+      "mean_absolute_shap_value": 0.00048484832071526415
+    }
+  ],
+  "scope": "benchmark test-set explanations; not live trust features"
+}

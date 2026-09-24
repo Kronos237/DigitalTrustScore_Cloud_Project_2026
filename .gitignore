@@ -25,6 +25,7 @@ MANIFEST
 .env
 .envrc
 .venv
+.venv-*/
 env/
 venv/
 ENV/
@@ -79,6 +80,7 @@ dataset/raw/
 dataset/processed/
 results/*.csv
 results/*.xlsx
+results/*.db
 #   you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 # Temporary file for partial code execution
@@ -97,3 +99,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Frontend dependencies and build output
+src/frontend/node_modules/
+src/frontend/dist/
