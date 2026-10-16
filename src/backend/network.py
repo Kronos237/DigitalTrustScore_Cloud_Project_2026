@@ -63,6 +63,10 @@ def fetch_public_url(url: str) -> FetchResult:
     try:
         opener = build_opener(_NoRedirect())
         with opener.open(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+            content_type = response.headers.get_content_type().lower()
+            content_disposition = response.headers.get("Content-Disposition", "").lower()
+            if "attachment" in content_disposition or content_type not in {"text/html", "application/xhtml+xml", "text/plain"}:
+                return FetchResult(response.status, dict(response.headers.items()), "", round((monotonic() - started) * 1000, 2), 0, "Response content type is not an analyzable web document")
             body = response.read(MAX_RESPONSE_BYTES + 1)
             if len(body) > MAX_RESPONSE_BYTES:
                 return FetchResult(None, {}, "", None, 0, "Response exceeded the configured size limit")

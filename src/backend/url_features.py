@@ -12,12 +12,15 @@ def collect(url: str) -> dict:
     except ValueError:
         has_ip = False
     path_and_query = f"{parsed.path}?{parsed.query}"
+    suspicious_terms = ("login", "verify", "account", "secure", "update")
     return {
         "url_length": len(url),
+        "hostname_length": len(hostname),
         "subdomain_count": max(0, len(hostname.split(".")) - 2),
         "uses_https": parsed.scheme == "https",
         "uses_ip_address": has_ip,
         "contains_at_symbol": "@" in url,
         "suspicious_special_characters": sum(url.count(character) for character in ("%", "=", "&", "-")),
+        "suspicious_pattern_count": sum(path_and_query.count(term) for term in suspicious_terms),
         "path_length": len(path_and_query),
     }

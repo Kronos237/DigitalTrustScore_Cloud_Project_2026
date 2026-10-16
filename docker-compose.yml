@@ -18,10 +18,14 @@ services:
       dockerfile: Dockerfile.backend
     environment:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      VIRUSTOTAL_API_KEY: ${VIRUSTOTAL_API_KEY:-}
+      REPUTATION_TIMEOUT_SECONDS: ${REPUTATION_TIMEOUT_SECONDS:-5}
       REQUEST_TIMEOUT_SECONDS: 8
       CORS_ORIGINS: ${CORS_ORIGINS:-http://127.0.0.1:5173,http://localhost:5173}
       MODEL_ARTIFACT_PATH: /app/models/random_forest.joblib
       MODEL_METADATA_PATH: /app/models/model_metadata.json
+      LIVE_MODEL_ARTIFACT_PATH: /app/models/live-phishing/random_forest.joblib
+      LIVE_MODEL_METADATA_PATH: /app/models/live-phishing/model_metadata.json
       DATASET_PATH: /app/data/raw/phishing+websites.zip
       EXPERIMENTS_PATH: /app/experiments
     ports:

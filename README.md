@@ -26,6 +26,8 @@ The local application uses a FastAPI backend with a stdlib HTTP fallback. SQLAlc
 - SHAP global and local explanations for the persisted benchmark Random Forest, kept separate from live trust analysis.
 - Independent PhiUSIIL benchmark experiment with its own audit, models, metrics, and SHAP artifacts.
 - SQLAlchemy repository persistence with local SQLite and PostgreSQL-compatible configuration.
+- Versioned `live-trust-v1` evidence vector and optional VirusTotal domain reputation enrichment, disabled unless configured.
+- Separate `live-phishing-v1` URL-only model with live inference and SHAP, kept separate from the trust score and benchmark models.
 
 ## Local Setup
 
@@ -76,6 +78,8 @@ Compose runs FastAPI on port `8000` and PostgreSQL on the private Compose networ
 
 Copy `.env.example` to `.env` and set values appropriate to the environment. Never commit `.env`, credentials, API keys, or passwords.
 
+To enable optional VirusTotal domain reputation, set `VIRUSTOTAL_API_KEY` in the ignored backend `.env` file only. Never put it in React/Vite environment variables, source code, request URLs, screenshots, or API responses. See [OSINT_INTEGRATION.md](docs/OSINT_INTEGRATION.md).
+
 ## API
 
 - `POST /api/analyze` with `{ "url": "https://example.com" }`
@@ -102,6 +106,8 @@ python -m src.ml_model.train data/external/your_dataset.csv --output-dir results
 The current validated run used 1,696 unambiguous feature vectors after excluding conflicting labels and selected Random Forest over Logistic Regression by validation ROC-AUC then F1. Its validation report is [ML_VALIDATION.md](docs/ML_VALIDATION.md); actual metrics are stored in `models/model_metadata.json` and `experiments/model_comparison.csv`. SHAP explains this benchmark model on its UCI test set, not the complete Digital Trust Score. Benchmark phishing labels are not equivalent to universal website trustworthiness, so the live API deliberately reports `ML prediction unavailable for live feature set` until a validated adapter exists.
 
 The independent PhiUSIIL experiment is documented in the PhiUSIIL section of [ML_VALIDATION.md](docs/ML_VALIDATION.md). Its artifacts live under `models/phiusiiil/` and `experiments/phiusiiil/`; it is not mixed with the frozen UCI benchmark or live analysis.
+
+The compatible URL-only live model is trained with `python -m src.ml_model.live_url_train`, saved under `models/live-phishing/`, and available for controlled live inference with matching SHAP explanations when `LIVE_ML_ENABLED=true`. It is disabled by default after a documented `example.com` false-positive diagnostic. Metrics and limitations are documented in [LIVE_ML_PIPELINE.md](docs/LIVE_ML_PIPELINE.md).
 
 ## Architecture Direction
 
